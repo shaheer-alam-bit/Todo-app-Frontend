@@ -22,9 +22,6 @@ FROM nginx:latest
 # Copy the built app from the builder stage
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# Copy your custom Nginx configuration (assuming you have it locally)
-COPY /etc/nginx/conf.d/todoapp.conf /etc/nginx/conf.d/default.conf
-
 # Expose port 80
 EXPOSE 80
 
