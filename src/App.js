@@ -6,10 +6,10 @@ function App() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const url = 'http://host.docker.internal:5000';
+  const url = '/api';
 
   const fetchTodos = async () => {
-    const response = await fetch(`${url}/api/todos`);
+    const response = await fetch(`${url}/todos`);
     const data = await response.json();
     setTodos(data);
   };
@@ -21,7 +21,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim()) return;
-    await fetch(`${url}/api/todos`, {
+    await fetch(`${url}/todos`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, description }),
@@ -32,7 +32,7 @@ function App() {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`${url}/api/todos/${id}`, { method: 'DELETE' });
+    await fetch(`${url}/todos/${id}`, { method: 'DELETE' });
     fetchTodos();
   };
 
