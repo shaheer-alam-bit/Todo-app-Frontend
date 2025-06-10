@@ -6,7 +6,7 @@ function App() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const url = 'http://backend:5000';
+  const url = 'http://localhost:5000';
 
   const fetchTodos = async () => {
     const response = await fetch(`${url}/api/todos`);
